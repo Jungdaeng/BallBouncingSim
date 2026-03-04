@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회전 12각형 Ball Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>Rotating Dodecagon Simulator</h1>
+        <p>회전하는 12각형 안에서 공의 물리 움직임을 확인해 보세요.</p>
+        <div class="controls">
+          <button id="addBallBtn" type="button">Add Ball</button>
+          <button id="resetBtn" type="button" class="ghost">Reset</button>
+        </div>
+        <div class="meta">
+          <span>Ball Count: <strong id="ballCount">0</strong></span>
+          <span>Rotation: <strong id="rotationSpeedLabel">0.55 rad/s</strong></span>
+        </div>
+        <label class="slider-wrap" for="rotationSlider">
+          <span>Rotation Speed 조절</span>
+          <input
+            id="rotationSlider"
+            type="range"
+            min="0"
+            max="2.5"
+            step="0.05"
+            value="0.55"
+          />
+        </label>
+      </section>
+      <canvas id="simCanvas" width="980" height="700" aria-label="ball simulator"></canvas>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
