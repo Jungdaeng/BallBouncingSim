@@ -19,6 +19,17 @@
           <span>Ball Count: <strong id="ballCount">0</strong></span>
           <span>Rotation: <strong id="rotationSpeedLabel">0.55 rad/s</strong></span>
         </div>
+        <label class="slider-wrap" for="rotationSlider">
+          <span>Rotation Speed 조절</span>
+          <input
+            id="rotationSlider"
+            type="range"
+            min="0"
+            max="2.5"
+            step="0.05"
+            value="0.55"
+          />
+        </label>
       </section>
       <canvas id="simCanvas" width="980" height="700" aria-label="ball simulator"></canvas>
     </main>

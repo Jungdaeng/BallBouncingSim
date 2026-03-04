@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 
 const addBallBtn = document.getElementById("addBallBtn");
 const resetBtn = document.getElementById("resetBtn");
+const rotationSlider = document.getElementById("rotationSlider");
 const ballCountLabel = document.getElementById("ballCount");
 const rotationSpeedLabel = document.getElementById("rotationSpeedLabel");
 
@@ -57,7 +58,7 @@ function buildEdges(vertices) {
     const a = vertices[i];
     const b = vertices[(i + 1) % vertices.length];
     const edge = vec.sub(b, a);
-    const normal = vec.normalize({ x: edge.y, y: -edge.x });
+    const normal = vec.normalize({ x: -edge.y, y: edge.x });
     const midpoint = vec.scale(vec.add(a, b), 0.5);
 
     edges.push({ a, b, edge, normal, midpoint });
@@ -238,6 +239,10 @@ function tick(now) {
 
 addBallBtn.addEventListener("click", createBall);
 resetBtn.addEventListener("click", resetBalls);
+rotationSlider.addEventListener("input", (event) => {
+  sim.omega = Number(event.target.value);
+  rotationSpeedLabel.textContent = `${sim.omega.toFixed(2)} rad/s`;
+});
 
 for (let i = 0; i < 6; i += 1) createBall();
 requestAnimationFrame(tick);
